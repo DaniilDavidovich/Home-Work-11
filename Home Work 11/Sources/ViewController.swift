@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     //MARK: - UI Elements
     
     let backroundWindow: UIImageView = {
@@ -33,8 +33,8 @@ class ViewController: UIViewController {
         textUsername.translatesAutoresizingMaskIntoConstraints = false
         textUsername.layer.cornerRadius = 25
         textUsername.placeholder = "Write you username"
-        textUsername.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 62))
-        textUsername.leftViewMode = .always
+        let image = UIImage(systemName: "person")
+        textUsername.setLeftIcon(image!)
         return textUsername
     }()
     
@@ -44,8 +44,8 @@ class ViewController: UIViewController {
         textPassword.translatesAutoresizingMaskIntoConstraints = false
         textPassword.layer.cornerRadius = 25
         textPassword.placeholder = "Write password"
-        textPassword.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 62))
-        textPassword.leftViewMode = .always
+        let image = UIImage(systemName: "lock")
+        textPassword.setLeftIcon(image!)
         return textPassword
     }()
     
@@ -79,7 +79,7 @@ class ViewController: UIViewController {
             backroundWindow.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             backroundWindow.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backroundWindow.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        
+            
             labelLogin.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             labelLogin.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -280),
             
@@ -92,7 +92,7 @@ class ViewController: UIViewController {
             textPassword.leadingAnchor.constraint(equalTo: textUsername.leadingAnchor, constant: 0),
             textPassword.rightAnchor.constraint(equalTo: textUsername.rightAnchor, constant: 0),
             textPassword.heightAnchor.constraint(equalToConstant: 50)
-        
+            
         ])
         
     }
@@ -101,7 +101,19 @@ class ViewController: UIViewController {
     //MARK: - Action
     
     
-
-
+    
+    
 }
+    
+// MARK: - Extension
 
+extension UITextField {
+    func setLeftIcon(_ image: UIImage) {
+        let iconView = UIImageView(frame: CGRect(x: 15, y: 5, width: 23, height: 20))
+        iconView.image = image
+        let iconContainerView: UIView = UIView(frame: CGRect(x: 20, y: 0, width: 40, height: 30))
+        iconContainerView.addSubview(iconView)
+        leftView = iconContainerView
+        leftViewMode = .always
+    }
+}
