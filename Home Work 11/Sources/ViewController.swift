@@ -56,9 +56,18 @@ class ViewController: UIViewController {
         buttonLogin.layer.masksToBounds = true
         buttonLogin.layer.cornerRadius = 25
         buttonLogin.backgroundColor = #colorLiteral(red: 0.8548169732, green: 0.7613634467, blue: 0.9888407588, alpha: 1)
-        buttonLogin.titleLabel!.font = UIFont.boldSystemFont(ofSize: 15)
+        buttonLogin.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         buttonLogin.translatesAutoresizingMaskIntoConstraints = false
         return buttonLogin
+    }()
+    
+    let forgotPasswordButton: UIButton = {
+        let forgotPasswordButton = UIButton()
+        forgotPasswordButton.setTitle("Forgot your password?", for: .normal)
+        forgotPasswordButton.setTitleColor(.black, for: .normal)
+        forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
+        forgotPasswordButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        return forgotPasswordButton
     }()
     
     
@@ -84,6 +93,7 @@ class ViewController: UIViewController {
         view.addSubview(textUsername)
         view.addSubview(textPassword)
         view.addSubview(buttonLogin)
+        view.addSubview(forgotPasswordButton)
     }
     
     private func setupLayout() {
@@ -101,14 +111,19 @@ class ViewController: UIViewController {
             textUsername.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -60),
             textUsername.heightAnchor.constraint(equalToConstant: 50),
             
-            textPassword.topAnchor.constraint(equalTo: textUsername.bottomAnchor, constant: 20),
+            textPassword.topAnchor.constraint(equalTo: textUsername.bottomAnchor, constant: 10),
             textPassword.leadingAnchor.constraint(equalTo: textUsername.leadingAnchor),
             textPassword.rightAnchor.constraint(equalTo: textUsername.rightAnchor),
             textPassword.heightAnchor.constraint(equalToConstant: 50),
             
             buttonLogin.leadingAnchor.constraint(equalTo: textUsername.leadingAnchor),
             buttonLogin.trailingAnchor.constraint(equalTo: textUsername.trailingAnchor),
-            buttonLogin.topAnchor.constraint(equalTo: view.topAnchor, constant: 400),
+            buttonLogin.topAnchor.constraint(equalTo: textPassword.bottomAnchor, constant: 40),
+            buttonLogin.heightAnchor.constraint(equalToConstant: 50),
+            
+            forgotPasswordButton.topAnchor.constraint(equalTo: buttonLogin.bottomAnchor, constant: 15),
+            forgotPasswordButton.trailingAnchor.constraint(equalTo: buttonLogin.trailingAnchor),
+            forgotPasswordButton.leadingAnchor.constraint(equalTo: buttonLogin.leadingAnchor),
             buttonLogin.heightAnchor.constraint(equalToConstant: 50)
             
         ])
