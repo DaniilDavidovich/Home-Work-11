@@ -11,7 +11,12 @@ class ViewController: UIViewController {
 
     //MARK: - UI Elements
     
-    
+    let backroundWindow: UIImageView = {
+        let imageForLogin = UIImage(named: "LoginWindowBackground")
+        let imageForBackground = UIImageView(image: imageForLogin)
+        imageForBackground.translatesAutoresizingMaskIntoConstraints = false
+        return imageForBackground
+    }()
     
     //MARK: - LifeCycle
     
@@ -29,10 +34,16 @@ class ViewController: UIViewController {
     }
     
     private func setupHierarchy() {
+        view.addSubview(backroundWindow)
         
     }
     
     private func setupLayout() {
+        NSLayoutConstraint.activate([
+            backroundWindow.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            backroundWindow.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        
+        ])
         
     }
     
