@@ -99,17 +99,24 @@ class ViewController: UIViewController {
     let buttonFacebook: UIButton = {
         let buttonFacebook = UIButton()
         buttonFacebook.setTitle("Facebook", for: .normal)
-        buttonFacebook.titleLabel?.font = .boldSystemFont(ofSize: 12)
-        buttonFacebook.setTitleColor(.black, for: .normal)
-        let image = UIImage(named: "1")
-        buttonFacebook.setImage(image, for: .normal)
+        buttonFacebook.titleLabel?.font = .boldSystemFont(ofSize: 13)
+        buttonFacebook.setTitleColor(.white, for: .normal)
         buttonFacebook.translatesAutoresizingMaskIntoConstraints = false
-        buttonFacebook.padding
         buttonFacebook.layer.masksToBounds = true
         buttonFacebook.layer.cornerRadius = 15
-        buttonFacebook.layer.borderColor = UIColor.black.cgColor
-        buttonFacebook.layer.borderWidth = 1
-        buttonFacebook.layer.backgroundColor = UIColor.white.cgColor
+        buttonFacebook.layer.backgroundColor = #colorLiteral(red: 0.2532982826, green: 0.1944507062, blue: 0.7709473372, alpha: 1)
+        return buttonFacebook
+    }()
+    
+    let buttonTwitter: UIButton = {
+        let buttonFacebook = UIButton()
+        buttonFacebook.setTitle("Twitter", for: .normal)
+        buttonFacebook.titleLabel?.font = .boldSystemFont(ofSize: 13)
+        buttonFacebook.setTitleColor(.white, for: .normal)
+        buttonFacebook.translatesAutoresizingMaskIntoConstraints = false
+        buttonFacebook.layer.masksToBounds = true
+        buttonFacebook.layer.cornerRadius = 15
+        buttonFacebook.layer.backgroundColor = #colorLiteral(red: 0.7612578273, green: 0.1165365949, blue: 0.4421842098, alpha: 1)
         return buttonFacebook
     }()
     
@@ -140,6 +147,7 @@ class ViewController: UIViewController {
         view.addSubview(lineLabelRight)
         view.addSubview(labelConnectWith)
         view.addSubview(buttonFacebook)
+        view.addSubview(buttonTwitter)
     }
     
     private func setupLayout() {
@@ -186,13 +194,15 @@ class ViewController: UIViewController {
             lineLabelRight.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             lineLabelRight.heightAnchor.constraint(equalToConstant: 1),
             
-            buttonFacebook.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 70),
-            buttonFacebook.rightAnchor.constraint(equalTo: view.rightAnchor,constant: -210),
+            buttonFacebook.leftAnchor.constraint(equalTo: labelConnectWith.rightAnchor, constant: -40),
+            buttonFacebook.rightAnchor.constraint(equalTo: lineLabelRight.rightAnchor),
             buttonFacebook.heightAnchor.constraint(equalToConstant: 30),
-            buttonFacebook.widthAnchor.constraint(equalToConstant: 20),
-            buttonFacebook.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100)
+            buttonFacebook.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 40),
             
-            
+            buttonTwitter.rightAnchor.constraint(equalTo: labelConnectWith.leftAnchor, constant: 40),
+            buttonTwitter.leftAnchor.constraint(equalTo: lineLabelLeft.leftAnchor),
+            buttonTwitter.heightAnchor.constraint(equalToConstant: 30),
+            buttonTwitter.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 40)
         ])
         
     }
