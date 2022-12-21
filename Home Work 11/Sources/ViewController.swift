@@ -33,8 +33,9 @@ class ViewController: UIViewController {
         textUsername.translatesAutoresizingMaskIntoConstraints = false
         textUsername.layer.cornerRadius = 25
         textUsername.placeholder = "Write you username"
-        let image = UIImage(systemName: "person")
-        textUsername.setLeftIcon(image!)
+        let imageLeft = UIImage(systemName: "person")
+        textUsername.setLeftIcon(imageLeft!)
+        let imageRightUser = UIImage(systemName: "xmark.seal.fill")
         return textUsername
     }()
     
@@ -100,6 +101,22 @@ class ViewController: UIViewController {
     
     //MARK: - Action
     
+    private func unlockLogin() {
+        if textUsername.text == "Dmitry Dorobniy" && textPassword.text == "VPoiskahBugs" {
+            let imageRightUser = UIImage(systemName: "checkmark.seal.fill")
+            textUsername.setRightIcon(imageRightUser!)
+            
+            let imageRightPasword = UIImage(systemName: "checkmark.seal.fill")
+            textPassword.setRightIcon(imageRightUser!)
+            
+        } else {
+            let imageRightUser = UIImage(systemName: "xmark.seal.fill")
+            textUsername.setRightIcon(imageRightUser!)
+            
+            let imageRightPasword = UIImage(systemName: "xmark.seal.fill")
+            textPassword.setRightIcon(imageRightPasword!)
+        }
+    }
     
     
     
@@ -108,6 +125,7 @@ class ViewController: UIViewController {
 // MARK: - Extension
 
 extension UITextField {
+    
     func setLeftIcon(_ image: UIImage) {
         let iconView = UIImageView(frame: CGRect(x: 15, y: 5, width: 23, height: 20))
         iconView.image = image
@@ -115,5 +133,14 @@ extension UITextField {
         iconContainerView.addSubview(iconView)
         leftView = iconContainerView
         leftViewMode = .always
+    }
+    
+    func setRightIcon(_ image: UIImage) {
+        let iconView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        iconView.image = image
+        let iconContainerView: UIView = UIView(frame: CGRect(x: 20, y: 0, width: 40, height: 30))
+        iconContainerView.addSubview(iconView)
+        rightView = iconContainerView
+        rightViewMode = .always
     }
 }
