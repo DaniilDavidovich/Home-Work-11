@@ -100,26 +100,40 @@ class ViewController: UIViewController {
     
     let buttonFacebook: UIButton = {
         let buttonFacebook = UIButton()
+        
+        var config = UIButton.Configuration.filled()
+        config.image = UIImage(named: "fb")
+        config.imagePadding = 8
+        config.imagePlacement = .leading
+        config.cornerStyle = .capsule
+        config.baseBackgroundColor = .white
+        config.background.strokeColor = .black
+        config.titleAlignment = .leading
+        
+        buttonFacebook.configuration = config
+        buttonFacebook.setTitleColor(.black, for: .normal)
         buttonFacebook.setTitle("Facebook", for: .normal)
-        buttonFacebook.titleLabel?.font = .boldSystemFont(ofSize: 13)
-        buttonFacebook.setTitleColor(.white, for: .normal)
         buttonFacebook.translatesAutoresizingMaskIntoConstraints = false
-        buttonFacebook.layer.masksToBounds = true
-        buttonFacebook.layer.cornerRadius = 15
-        buttonFacebook.layer.backgroundColor = #colorLiteral(red: 0.2532982826, green: 0.1944507062, blue: 0.7709473372, alpha: 1)
         return buttonFacebook
     }()
     
     let buttonTwitter: UIButton = {
-        let buttonFacebook = UIButton()
-        buttonFacebook.setTitle("Twitter", for: .normal)
-        buttonFacebook.titleLabel?.font = .boldSystemFont(ofSize: 13)
-        buttonFacebook.setTitleColor(.white, for: .normal)
-        buttonFacebook.translatesAutoresizingMaskIntoConstraints = false
-        buttonFacebook.layer.masksToBounds = true
-        buttonFacebook.layer.cornerRadius = 15
-        buttonFacebook.layer.backgroundColor = #colorLiteral(red: 0.7612578273, green: 0.1165365949, blue: 0.4421842098, alpha: 1)
-        return buttonFacebook
+        let buttonTwitter = UIButton()
+        
+        var config = UIButton.Configuration.filled()
+        config.image = UIImage(named: "tw")
+        config.imagePadding = 0
+        config.imagePlacement = .leading
+        config.cornerStyle = .capsule
+        config.baseBackgroundColor = .white
+        config.background.strokeColor = .black
+        config.titleAlignment = .center
+        
+        buttonTwitter.configuration = config
+        buttonTwitter.setTitleColor(.black, for: .normal)
+        buttonTwitter.setTitle("Twitter", for: .normal)
+        buttonTwitter.translatesAutoresizingMaskIntoConstraints = false
+        return buttonTwitter
     }()
     
     let labelRegister: UILabel = {
@@ -136,10 +150,29 @@ class ViewController: UIViewController {
         buttonRegister.setTitle("Sign up", for: .normal)
         buttonRegister.translatesAutoresizingMaskIntoConstraints = false
         buttonRegister.titleLabel?.font = .systemFont(ofSize: 15)
-        buttonRegister.setTitleColor(.black, for: .normal)
+        buttonRegister.setTitleColor(.blue, for: .normal)
         buttonRegister.titleLabel?.textAlignment = .center
         
         return buttonRegister
+    }()
+    
+    let buttonGmail: UIButton = {
+        let buttonTwitter = UIButton()
+        
+        var config = UIButton.Configuration.filled()
+        config.image = UIImage(named: "gm")
+        config.imagePadding = 3
+        config.imagePlacement = .leading
+        config.cornerStyle = .capsule
+        config.baseBackgroundColor = .white
+        config.background.strokeColor = .black
+        config.titleAlignment = .center
+        
+        buttonTwitter.configuration = config
+        buttonTwitter.setTitleColor(.black, for: .normal)
+        buttonTwitter.setTitle("Gmail", for: .normal)
+        buttonTwitter.translatesAutoresizingMaskIntoConstraints = false
+        return buttonTwitter
     }()
     
     //MARK: - LifeCycle
@@ -172,6 +205,7 @@ class ViewController: UIViewController {
         view.addSubview(buttonTwitter)
         view.addSubview(labelRegister)
         view.addSubview(buttonRegister)
+        view.addSubview(buttonGmail)
     }
     
     private func setupLayout() {
@@ -210,20 +244,20 @@ class ViewController: UIViewController {
             
             lineLabelLeft.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 2),
             lineLabelLeft.trailingAnchor.constraint(equalTo: labelConnectWith.leadingAnchor, constant: 5),
-            lineLabelLeft.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            lineLabelLeft.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 23),
             lineLabelLeft.heightAnchor.constraint(equalToConstant: 1),
             
             lineLabelRight.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 2),
             lineLabelRight.leadingAnchor.constraint(equalTo: labelConnectWith.trailingAnchor, constant: -5),
-            lineLabelRight.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            lineLabelRight.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -23),
             lineLabelRight.heightAnchor.constraint(equalToConstant: 1),
             
-            buttonFacebook.leftAnchor.constraint(equalTo: labelConnectWith.rightAnchor, constant: -40),
-            buttonFacebook.rightAnchor.constraint(equalTo: lineLabelRight.rightAnchor),
+            buttonFacebook.leftAnchor.constraint(equalTo: labelConnectWith.leftAnchor, constant: 5),
+            buttonFacebook.rightAnchor.constraint(equalTo: labelConnectWith.rightAnchor, constant: -5),
             buttonFacebook.heightAnchor.constraint(equalToConstant: 30),
             buttonFacebook.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 40),
             
-            buttonTwitter.rightAnchor.constraint(equalTo: labelConnectWith.leftAnchor, constant: 40),
+            buttonTwitter.rightAnchor.constraint(equalTo: labelConnectWith.leftAnchor),
             buttonTwitter.leftAnchor.constraint(equalTo: lineLabelLeft.leftAnchor),
             buttonTwitter.heightAnchor.constraint(equalToConstant: 30),
             buttonTwitter.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 40),
@@ -235,6 +269,10 @@ class ViewController: UIViewController {
             buttonRegister.centerYAnchor.constraint(equalTo: labelRegister.centerYAnchor),
             buttonRegister.leadingAnchor.constraint(equalTo: labelRegister.trailingAnchor, constant: 20),
             
+            buttonGmail.leftAnchor.constraint(equalTo: labelConnectWith.rightAnchor),
+            buttonGmail.rightAnchor.constraint(equalTo: lineLabelRight.rightAnchor),
+            buttonGmail.heightAnchor.constraint(equalToConstant: 30),
+            buttonGmail.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 40),
         ])
         
     }
