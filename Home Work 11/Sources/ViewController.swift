@@ -50,6 +50,17 @@ class ViewController: UIViewController {
         return textPassword
     }()
     
+    let buttonLogin: UIButton = {
+        let buttonLogin = UIButton()
+        buttonLogin.setTitle("Login", for: .normal)
+        buttonLogin.layer.masksToBounds = true
+        buttonLogin.layer.cornerRadius = 25
+        buttonLogin.backgroundColor = #colorLiteral(red: 0.8548169732, green: 0.7613634467, blue: 0.9888407588, alpha: 1)
+        buttonLogin.titleLabel!.font = UIFont.boldSystemFont(ofSize: 15)
+        buttonLogin.translatesAutoresizingMaskIntoConstraints = false
+        return buttonLogin
+    }()
+    
     
     //MARK: - LifeCycle
     
@@ -72,6 +83,7 @@ class ViewController: UIViewController {
         view.addSubview(labelLogin)
         view.addSubview(textUsername)
         view.addSubview(textPassword)
+        view.addSubview(buttonLogin)
     }
     
     private func setupLayout() {
@@ -90,9 +102,14 @@ class ViewController: UIViewController {
             textUsername.heightAnchor.constraint(equalToConstant: 50),
             
             textPassword.topAnchor.constraint(equalTo: textUsername.bottomAnchor, constant: 20),
-            textPassword.leadingAnchor.constraint(equalTo: textUsername.leadingAnchor, constant: 0),
-            textPassword.rightAnchor.constraint(equalTo: textUsername.rightAnchor, constant: 0),
-            textPassword.heightAnchor.constraint(equalToConstant: 50)
+            textPassword.leadingAnchor.constraint(equalTo: textUsername.leadingAnchor),
+            textPassword.rightAnchor.constraint(equalTo: textUsername.rightAnchor),
+            textPassword.heightAnchor.constraint(equalToConstant: 50),
+            
+            buttonLogin.leadingAnchor.constraint(equalTo: textUsername.leadingAnchor),
+            buttonLogin.trailingAnchor.constraint(equalTo: textUsername.trailingAnchor),
+            buttonLogin.topAnchor.constraint(equalTo: view.topAnchor, constant: 400),
+            buttonLogin.heightAnchor.constraint(equalToConstant: 50)
             
         ])
         
