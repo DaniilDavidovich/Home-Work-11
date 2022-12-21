@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         return textPassword
     }()
     
-    let buttonLogin: UIButton = {
+    lazy var buttonLogin: UIButton = {
         let buttonLogin = UIButton()
         buttonLogin.setTitle("Login", for: .normal)
         buttonLogin.layer.masksToBounds = true
@@ -62,12 +62,13 @@ class ViewController: UIViewController {
         return buttonLogin
     }()
     
-    let forgotPasswordButton: UIButton = {
+    lazy var  forgotPasswordButton: UIButton = {
         let forgotPasswordButton = UIButton()
         forgotPasswordButton.setTitle("Forgot your password?", for: .normal)
         forgotPasswordButton.setTitleColor(.black, for: .normal)
         forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
         forgotPasswordButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        forgotPasswordButton.addTarget(self, action: #selector(forgotPassword), for: .touchUpInside)
         return forgotPasswordButton
     }()
     
@@ -242,7 +243,7 @@ class ViewController: UIViewController {
     //MARK: - Action
     
     @objc private func unlockLogin() {
-        if textUsername.text == "Dmitry Dorobniy" && textPassword.text == "VPoiskahBugs" {
+        if textUsername.text == "Dmitry Dorodniy" && textPassword.text == "VPoiskahBugs" {
             let imageRightUser = UIImage(systemName: "checkmark.seal.fill")
             textUsername.setRightIcon(imageRightUser!)
             
@@ -258,7 +259,12 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    @objc private func forgotPassword() {
+        if textUsername.text != "Dmitry Dorodniy" && textPassword.text != "VPoiskahBugs" {
+            textUsername.text = "Dmitry Dorodniy"
+            textPassword.text = "VPoiskahBugs"
+        }
+    }
     
 }
     
@@ -282,23 +288,5 @@ extension UITextField {
         iconContainerView.addSubview(iconView)
         rightView = iconContainerView
         rightViewMode = .always
-    }
-}
-
-
-extension UIButton {
-    
-    func setLeftIcon(_ image: UIImage) {
-        let iconView = UIImageView(frame: CGRect(x: 15, y: 5, width: 23, height: 20))
-        iconView.image = image
-        let iconContainerView: UIView = UIView(frame: CGRect(x: 20, y: 0, width: 40, height: 30))
-        iconContainerView.addSubview(iconView)
-    }
-    
-    func setRightIcon(_ image: UIImage) {
-        let iconView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-        iconView.image = image
-        let iconContainerView: UIView = UIView(frame: CGRect(x: 20, y: 0, width: 40, height: 30))
-        iconContainerView.addSubview(iconView)
     }
 }
