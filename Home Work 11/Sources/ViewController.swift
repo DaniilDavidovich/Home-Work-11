@@ -27,6 +27,29 @@ class ViewController: UIViewController {
         return labelLogin
     }()
     
+    let textUsername: UITextField = {
+        let textUsername = UITextField()
+        textUsername.layer.backgroundColor = UIColor.white.cgColor
+        textUsername.translatesAutoresizingMaskIntoConstraints = false
+        textUsername.layer.cornerRadius = 25
+        textUsername.placeholder = "Write you username"
+        textUsername.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 62))
+        textUsername.leftViewMode = .always
+        return textUsername
+    }()
+    
+    let textPassword: UITextField = {
+        let textPassword = UITextField()
+        textPassword.layer.backgroundColor = UIColor.white.cgColor
+        textPassword.translatesAutoresizingMaskIntoConstraints = false
+        textPassword.layer.cornerRadius = 25
+        textPassword.placeholder = "Write password"
+        textPassword.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 16, height: 62))
+        textPassword.leftViewMode = .always
+        return textPassword
+    }()
+    
+    
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -34,6 +57,7 @@ class ViewController: UIViewController {
         setupView()
         setupHierarchy()
         setupLayout()
+        
     }
     
     //MARK: - Setups
@@ -45,6 +69,8 @@ class ViewController: UIViewController {
     private func setupHierarchy() {
         view.addSubview(backroundWindow)
         view.addSubview(labelLogin)
+        view.addSubview(textUsername)
+        view.addSubview(textPassword)
     }
     
     private func setupLayout() {
@@ -55,13 +81,25 @@ class ViewController: UIViewController {
             backroundWindow.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         
             labelLogin.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            labelLogin.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -280)
+            labelLogin.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -280),
+            
+            textUsername.topAnchor.constraint(equalTo: labelLogin.bottomAnchor, constant: 50),
+            textUsername.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
+            textUsername.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -60),
+            textUsername.heightAnchor.constraint(equalToConstant: 50),
+            
+            textPassword.topAnchor.constraint(equalTo: textUsername.bottomAnchor, constant: 20),
+            textPassword.leadingAnchor.constraint(equalTo: textUsername.leadingAnchor, constant: 0),
+            textPassword.rightAnchor.constraint(equalTo: textUsername.rightAnchor, constant: 0),
+            textPassword.heightAnchor.constraint(equalToConstant: 50)
+        
         ])
         
     }
     
     
     //MARK: - Action
+    
     
 
 
