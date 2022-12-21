@@ -36,6 +36,15 @@ class ViewController: UIViewController {
         let imageLeft = UIImage(systemName: "person")
         textUsername.setLeftIcon(imageLeft!)
         let imageRightUser = UIImage(systemName: "xmark.seal.fill")
+        
+        textUsername.layer.masksToBounds = false
+        textUsername.layer.shadowColor = UIColor.lightGray.cgColor
+        textUsername.layer.shadowOpacity = 0.3
+        textUsername.layer.shadowOffset = .init(width: 0, height: 2)
+        textUsername.layer.shadowRadius = 10
+        textUsername.layer.shouldRasterize = true
+        textUsername.layer.rasterizationScale = UIScreen.main.scale
+        
         return textUsername
     }()
     
@@ -47,18 +56,36 @@ class ViewController: UIViewController {
         textPassword.placeholder = "Write password"
         let image = UIImage(systemName: "lock")
         textPassword.setLeftIcon(image!)
+        
+        textPassword.layer.masksToBounds = false
+        textPassword.layer.shadowColor = UIColor.lightGray.cgColor
+        textPassword.layer.shadowOpacity = 0.3
+        textPassword.layer.shadowOffset = .init(width: 0, height: 2)
+        textPassword.layer.shadowRadius = 10
+        textPassword.layer.shouldRasterize = true
+        textPassword.layer.rasterizationScale = UIScreen.main.scale
         return textPassword
     }()
     
     lazy var buttonLogin: UIButton = {
         let buttonLogin = UIButton()
         buttonLogin.setTitle("Login", for: .normal)
+        buttonLogin.setTitleColor(.systemGray, for: .highlighted)
         buttonLogin.layer.masksToBounds = true
         buttonLogin.layer.cornerRadius = 25
         buttonLogin.backgroundColor = #colorLiteral(red: 0.8548169732, green: 0.7613634467, blue: 0.9888407588, alpha: 1)
         buttonLogin.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         buttonLogin.translatesAutoresizingMaskIntoConstraints = false
         buttonLogin.addTarget(self, action: #selector(unlockLogin), for: .touchUpInside)
+        
+        buttonLogin.layer.masksToBounds = false
+        buttonLogin.layer.shadowColor = UIColor.black.cgColor
+        buttonLogin.layer.shadowOpacity = 0.3
+        buttonLogin.layer.shadowOffset = .init(width: 0, height: 1)
+        buttonLogin.layer.shadowRadius = 3
+        buttonLogin.layer.shouldRasterize = true
+        buttonLogin.layer.rasterizationScale = UIScreen.main.scale
+        
         return buttonLogin
     }()
     
@@ -114,6 +141,14 @@ class ViewController: UIViewController {
         buttonFacebook.setTitleColor(.black, for: .normal)
         buttonFacebook.setTitle("Facebook", for: .normal)
         buttonFacebook.translatesAutoresizingMaskIntoConstraints = false
+        
+        buttonFacebook.layer.masksToBounds = false
+        buttonFacebook.layer.shadowColor = UIColor.gray.cgColor
+        buttonFacebook.layer.shadowOpacity = 0.3
+        buttonFacebook.layer.shadowOffset = .init(width: 0, height: 1)
+        buttonFacebook.layer.shadowRadius = 3
+        buttonFacebook.layer.shouldRasterize = true
+        buttonFacebook.layer.rasterizationScale = UIScreen.main.scale
         return buttonFacebook
     }()
     
@@ -133,6 +168,14 @@ class ViewController: UIViewController {
         buttonTwitter.setTitleColor(.black, for: .normal)
         buttonTwitter.setTitle("Twitter", for: .normal)
         buttonTwitter.translatesAutoresizingMaskIntoConstraints = false
+        
+        buttonTwitter.layer.masksToBounds = false
+        buttonTwitter.layer.shadowColor = UIColor.gray.cgColor
+        buttonTwitter.layer.shadowOpacity = 0.3
+        buttonTwitter.layer.shadowOffset = .init(width: 0, height: 1)
+        buttonTwitter.layer.shadowRadius = 3
+        buttonTwitter.layer.shouldRasterize = true
+        buttonTwitter.layer.rasterizationScale = UIScreen.main.scale
         return buttonTwitter
     }()
     
@@ -157,7 +200,7 @@ class ViewController: UIViewController {
     }()
     
     let buttonGmail: UIButton = {
-        let buttonTwitter = UIButton()
+        let buttonGmail = UIButton()
         
         var config = UIButton.Configuration.filled()
         config.image = UIImage(named: "gm")
@@ -168,11 +211,19 @@ class ViewController: UIViewController {
         config.background.strokeColor = .black
         config.titleAlignment = .center
         
-        buttonTwitter.configuration = config
-        buttonTwitter.setTitleColor(.black, for: .normal)
-        buttonTwitter.setTitle("Gmail", for: .normal)
-        buttonTwitter.translatesAutoresizingMaskIntoConstraints = false
-        return buttonTwitter
+        buttonGmail.configuration = config
+        buttonGmail.setTitleColor(.black, for: .normal)
+        buttonGmail.setTitle("Gmail", for: .normal)
+        buttonGmail.translatesAutoresizingMaskIntoConstraints = false
+        
+        buttonGmail.layer.masksToBounds = false
+        buttonGmail.layer.shadowColor = UIColor.gray.cgColor
+        buttonGmail.layer.shadowOpacity = 0.3
+        buttonGmail.layer.shadowOffset = .init(width: 0, height: 1)
+        buttonGmail.layer.shadowRadius = 3
+        buttonGmail.layer.shouldRasterize = true
+        buttonGmail.layer.rasterizationScale = UIScreen.main.scale
+        return buttonGmail
     }()
     
     //MARK: - LifeCycle
@@ -244,20 +295,20 @@ class ViewController: UIViewController {
             
             lineLabelLeft.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 2),
             lineLabelLeft.trailingAnchor.constraint(equalTo: labelConnectWith.leadingAnchor, constant: 5),
-            lineLabelLeft.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 23),
+            lineLabelLeft.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 17), //5
             lineLabelLeft.heightAnchor.constraint(equalToConstant: 1),
             
             lineLabelRight.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 2),
             lineLabelRight.leadingAnchor.constraint(equalTo: labelConnectWith.trailingAnchor, constant: -5),
-            lineLabelRight.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -23),
+            lineLabelRight.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -17), //5
             lineLabelRight.heightAnchor.constraint(equalToConstant: 1),
             
-            buttonFacebook.leftAnchor.constraint(equalTo: labelConnectWith.leftAnchor, constant: 5),
-            buttonFacebook.rightAnchor.constraint(equalTo: labelConnectWith.rightAnchor, constant: -5),
+            buttonFacebook.leftAnchor.constraint(equalTo: labelConnectWith.leftAnchor, constant: -3),
+            buttonFacebook.rightAnchor.constraint(equalTo: labelConnectWith.rightAnchor, constant: 3),
             buttonFacebook.heightAnchor.constraint(equalToConstant: 30),
             buttonFacebook.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 40),
             
-            buttonTwitter.rightAnchor.constraint(equalTo: labelConnectWith.leftAnchor),
+            buttonTwitter.rightAnchor.constraint(equalTo: labelConnectWith.leftAnchor,constant: -7),// 7
             buttonTwitter.leftAnchor.constraint(equalTo: lineLabelLeft.leftAnchor),
             buttonTwitter.heightAnchor.constraint(equalToConstant: 30),
             buttonTwitter.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 40),
@@ -269,7 +320,7 @@ class ViewController: UIViewController {
             buttonRegister.centerYAnchor.constraint(equalTo: labelRegister.centerYAnchor),
             buttonRegister.leadingAnchor.constraint(equalTo: labelRegister.trailingAnchor, constant: 20),
             
-            buttonGmail.leftAnchor.constraint(equalTo: labelConnectWith.rightAnchor),
+            buttonGmail.leftAnchor.constraint(equalTo: labelConnectWith.rightAnchor, constant: 7),// 7
             buttonGmail.rightAnchor.constraint(equalTo: lineLabelRight.rightAnchor),
             buttonGmail.heightAnchor.constraint(equalToConstant: 30),
             buttonGmail.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 40),
@@ -303,7 +354,6 @@ class ViewController: UIViewController {
             textPassword.text = "VPoiskahBugs"
         }
     }
-    
 }
     
 // MARK: - Extension
