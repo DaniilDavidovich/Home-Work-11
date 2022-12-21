@@ -58,6 +58,7 @@ class ViewController: UIViewController {
         buttonLogin.backgroundColor = #colorLiteral(red: 0.8548169732, green: 0.7613634467, blue: 0.9888407588, alpha: 1)
         buttonLogin.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         buttonLogin.translatesAutoresizingMaskIntoConstraints = false
+        buttonLogin.addTarget(self, action: #selector(unlockLogin), for: .touchUpInside)
         return buttonLogin
     }()
     
@@ -120,6 +121,26 @@ class ViewController: UIViewController {
         return buttonFacebook
     }()
     
+    let labelRegister: UILabel = {
+        let labelRegister = UILabel()
+        labelRegister.text = "Dont have account?"
+        labelRegister.font = .systemFont(ofSize: 15)
+        labelRegister.translatesAutoresizingMaskIntoConstraints = false
+        labelRegister.textAlignment = .center
+        return labelRegister
+    }()
+    
+    let buttonRegister: UIButton = {
+        let buttonRegister = UIButton()
+        buttonRegister.setTitle("Sign up", for: .normal)
+        buttonRegister.translatesAutoresizingMaskIntoConstraints = false
+        buttonRegister.titleLabel?.font = .systemFont(ofSize: 15)
+        buttonRegister.setTitleColor(.black, for: .normal)
+        buttonRegister.titleLabel?.textAlignment = .center
+        
+        return buttonRegister
+    }()
+    
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -148,6 +169,8 @@ class ViewController: UIViewController {
         view.addSubview(labelConnectWith)
         view.addSubview(buttonFacebook)
         view.addSubview(buttonTwitter)
+        view.addSubview(labelRegister)
+        view.addSubview(buttonRegister)
     }
     
     private func setupLayout() {
@@ -202,7 +225,15 @@ class ViewController: UIViewController {
             buttonTwitter.rightAnchor.constraint(equalTo: labelConnectWith.leftAnchor, constant: 40),
             buttonTwitter.leftAnchor.constraint(equalTo: lineLabelLeft.leftAnchor),
             buttonTwitter.heightAnchor.constraint(equalToConstant: 30),
-            buttonTwitter.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 40)
+            buttonTwitter.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 40),
+            
+            labelRegister.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70),
+            labelRegister.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 75),
+            labelRegister.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -160),
+            
+            buttonRegister.centerYAnchor.constraint(equalTo: labelRegister.centerYAnchor),
+            buttonRegister.leadingAnchor.constraint(equalTo: labelRegister.trailingAnchor, constant: 20),
+            
         ])
         
     }
@@ -210,7 +241,7 @@ class ViewController: UIViewController {
     
     //MARK: - Action
     
-    private func unlockLogin() {
+    @objc private func unlockLogin() {
         if textUsername.text == "Dmitry Dorobniy" && textPassword.text == "VPoiskahBugs" {
             let imageRightUser = UIImage(systemName: "checkmark.seal.fill")
             textUsername.setRightIcon(imageRightUser!)
