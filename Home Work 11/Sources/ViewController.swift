@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         
         textUsername.layer.masksToBounds = false
         textUsername.layer.shadowColor = UIColor.lightGray.cgColor
-        textUsername.layer.shadowOpacity = 3
+        textUsername.layer.shadowOpacity = 0.3
         textUsername.layer.shadowOffset = .init(width: 0, height: 2)
         textUsername.layer.shadowRadius = 10
         textUsername.layer.shouldRasterize = true
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         
         textPassword.layer.masksToBounds = false
         textPassword.layer.shadowColor = UIColor.lightGray.cgColor
-        textPassword.layer.shadowOpacity = 3
+        textPassword.layer.shadowOpacity = 0.3
         textPassword.layer.shadowOffset = .init(width: 0, height: 2)
         textPassword.layer.shadowRadius = 10
         textPassword.layer.shouldRasterize = true
@@ -80,7 +80,7 @@ class ViewController: UIViewController {
         
         buttonLogin.layer.masksToBounds = false
         buttonLogin.layer.shadowColor = UIColor.black.cgColor
-        buttonLogin.layer.shadowOpacity = 10
+        buttonLogin.layer.shadowOpacity = 0.3
         buttonLogin.layer.shadowOffset = .init(width: 0, height: 1)
         buttonLogin.layer.shadowRadius = 3
         buttonLogin.layer.shouldRasterize = true
@@ -144,7 +144,7 @@ class ViewController: UIViewController {
         
         buttonFacebook.layer.masksToBounds = false
         buttonFacebook.layer.shadowColor = UIColor.gray.cgColor
-        buttonFacebook.layer.shadowOpacity = 10
+        buttonFacebook.layer.shadowOpacity = 0.3
         buttonFacebook.layer.shadowOffset = .init(width: 0, height: 1)
         buttonFacebook.layer.shadowRadius = 3
         buttonFacebook.layer.shouldRasterize = true
@@ -171,7 +171,7 @@ class ViewController: UIViewController {
         
         buttonTwitter.layer.masksToBounds = false
         buttonTwitter.layer.shadowColor = UIColor.gray.cgColor
-        buttonTwitter.layer.shadowOpacity = 10
+        buttonTwitter.layer.shadowOpacity = 0.3
         buttonTwitter.layer.shadowOffset = .init(width: 0, height: 1)
         buttonTwitter.layer.shadowRadius = 3
         buttonTwitter.layer.shouldRasterize = true
@@ -218,7 +218,7 @@ class ViewController: UIViewController {
         
         buttonGmail.layer.masksToBounds = false
         buttonGmail.layer.shadowColor = UIColor.gray.cgColor
-        buttonGmail.layer.shadowOpacity = 1
+        buttonGmail.layer.shadowOpacity = 0.3
         buttonGmail.layer.shadowOffset = .init(width: 0, height: 1)
         buttonGmail.layer.shadowRadius = 3
         buttonGmail.layer.shouldRasterize = true
