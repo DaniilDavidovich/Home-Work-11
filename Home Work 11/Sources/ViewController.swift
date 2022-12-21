@@ -96,6 +96,23 @@ class ViewController: UIViewController {
         return labelConnectWith
     }()
     
+    let buttonFacebook: UIButton = {
+        let buttonFacebook = UIButton()
+        buttonFacebook.setTitle("Facebook", for: .normal)
+        buttonFacebook.titleLabel?.font = .boldSystemFont(ofSize: 12)
+        buttonFacebook.setTitleColor(.black, for: .normal)
+        let image = UIImage(named: "1")
+        buttonFacebook.setImage(image, for: .normal)
+        buttonFacebook.translatesAutoresizingMaskIntoConstraints = false
+        buttonFacebook.padding
+        buttonFacebook.layer.masksToBounds = true
+        buttonFacebook.layer.cornerRadius = 15
+        buttonFacebook.layer.borderColor = UIColor.black.cgColor
+        buttonFacebook.layer.borderWidth = 1
+        buttonFacebook.layer.backgroundColor = UIColor.white.cgColor
+        return buttonFacebook
+    }()
+    
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -122,6 +139,7 @@ class ViewController: UIViewController {
         view.addSubview(lineLabelLeft)
         view.addSubview(lineLabelRight)
         view.addSubview(labelConnectWith)
+        view.addSubview(buttonFacebook)
     }
     
     private func setupLayout() {
@@ -166,7 +184,14 @@ class ViewController: UIViewController {
             lineLabelRight.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 2),
             lineLabelRight.leadingAnchor.constraint(equalTo: labelConnectWith.trailingAnchor, constant: -5),
             lineLabelRight.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            lineLabelRight.heightAnchor.constraint(equalToConstant: 1)
+            lineLabelRight.heightAnchor.constraint(equalToConstant: 1),
+            
+            buttonFacebook.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 70),
+            buttonFacebook.rightAnchor.constraint(equalTo: view.rightAnchor,constant: -210),
+            buttonFacebook.heightAnchor.constraint(equalToConstant: 30),
+            buttonFacebook.widthAnchor.constraint(equalToConstant: 20),
+            buttonFacebook.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 100)
+            
             
         ])
         
@@ -216,5 +241,23 @@ extension UITextField {
         iconContainerView.addSubview(iconView)
         rightView = iconContainerView
         rightViewMode = .always
+    }
+}
+
+
+extension UIButton {
+    
+    func setLeftIcon(_ image: UIImage) {
+        let iconView = UIImageView(frame: CGRect(x: 15, y: 5, width: 23, height: 20))
+        iconView.image = image
+        let iconContainerView: UIView = UIView(frame: CGRect(x: 20, y: 0, width: 40, height: 30))
+        iconContainerView.addSubview(iconView)
+    }
+    
+    func setRightIcon(_ image: UIImage) {
+        let iconView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        iconView.image = image
+        let iconContainerView: UIView = UIView(frame: CGRect(x: 20, y: 0, width: 40, height: 30))
+        iconContainerView.addSubview(iconView)
     }
 }
