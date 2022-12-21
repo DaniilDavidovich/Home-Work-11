@@ -70,6 +70,31 @@ class ViewController: UIViewController {
         return forgotPasswordButton
     }()
     
+    let lineLabelLeft: UILabel = {
+        let lineLabelLeft = UILabel ()
+        lineLabelLeft.backgroundColor = .black
+        lineLabelLeft.layer.cornerRadius = 2
+        lineLabelLeft.translatesAutoresizingMaskIntoConstraints = false
+        return lineLabelLeft
+    }()
+    
+    let lineLabelRight: UILabel = {
+        let lineLabelRight = UILabel ()
+        lineLabelRight.backgroundColor = .black
+        lineLabelRight.layer.cornerRadius = 2
+        lineLabelRight.translatesAutoresizingMaskIntoConstraints = false
+        return lineLabelRight
+    }()
+    
+    let labelConnectWith: UILabel = {
+        let labelConnectWith = UILabel()
+        labelConnectWith.text = "or connect with"
+        labelConnectWith.font = .systemFont(ofSize: 15)
+        labelConnectWith.textColor = .black
+        labelConnectWith.translatesAutoresizingMaskIntoConstraints = false
+        labelConnectWith.textAlignment = .center
+        return labelConnectWith
+    }()
     
     //MARK: - LifeCycle
     
@@ -94,6 +119,9 @@ class ViewController: UIViewController {
         view.addSubview(textPassword)
         view.addSubview(buttonLogin)
         view.addSubview(forgotPasswordButton)
+        view.addSubview(lineLabelLeft)
+        view.addSubview(lineLabelRight)
+        view.addSubview(labelConnectWith)
     }
     
     private func setupLayout() {
@@ -124,7 +152,21 @@ class ViewController: UIViewController {
             forgotPasswordButton.topAnchor.constraint(equalTo: buttonLogin.bottomAnchor, constant: 15),
             forgotPasswordButton.trailingAnchor.constraint(equalTo: buttonLogin.trailingAnchor),
             forgotPasswordButton.leadingAnchor.constraint(equalTo: buttonLogin.leadingAnchor),
-            buttonLogin.heightAnchor.constraint(equalToConstant: 50)
+            forgotPasswordButton.heightAnchor.constraint(equalToConstant: 20),
+            
+            labelConnectWith.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -125),
+            labelConnectWith.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 125),
+            labelConnectWith.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -200),
+            
+            lineLabelLeft.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 2),
+            lineLabelLeft.trailingAnchor.constraint(equalTo: labelConnectWith.leadingAnchor, constant: 5),
+            lineLabelLeft.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            lineLabelLeft.heightAnchor.constraint(equalToConstant: 1),
+            
+            lineLabelRight.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 2),
+            lineLabelRight.leadingAnchor.constraint(equalTo: labelConnectWith.trailingAnchor, constant: -5),
+            lineLabelRight.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            lineLabelRight.heightAnchor.constraint(equalToConstant: 1)
             
         ])
         
