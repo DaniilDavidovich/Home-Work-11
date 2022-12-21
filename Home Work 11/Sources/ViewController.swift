@@ -31,8 +31,9 @@ class ViewController: UIViewController {
         let textUsername = UITextField()
         textUsername.layer.backgroundColor = UIColor.white.cgColor
         textUsername.translatesAutoresizingMaskIntoConstraints = false
+        textUsername.textColor = .black
         textUsername.layer.cornerRadius = 25
-        textUsername.placeholder = "Write you username"
+        textUsername.attributedPlaceholder = NSAttributedString(string: "Write you username", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
         let imageLeft = UIImage(systemName: "person")
         textUsername.setLeftIcon(imageLeft!)
         let imageRightUser = UIImage(systemName: "xmark.seal.fill")
@@ -53,7 +54,9 @@ class ViewController: UIViewController {
         textPassword.layer.backgroundColor = UIColor.white.cgColor
         textPassword.translatesAutoresizingMaskIntoConstraints = false
         textPassword.layer.cornerRadius = 25
-        textPassword.placeholder = "Write password"
+        textPassword.textColor = .black
+        textPassword.attributedPlaceholder = NSAttributedString(string: "Write password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+
         let image = UIImage(systemName: "lock")
         textPassword.setLeftIcon(image!)
         
@@ -233,6 +236,7 @@ class ViewController: UIViewController {
         setupView()
         setupHierarchy()
         setupLayout()
+        self.hideKeyboardWhenTappedAround()
         
     }
     
@@ -358,6 +362,7 @@ class ViewController: UIViewController {
     
 // MARK: - Extension
 
+// MARK: For image in text field
 extension UITextField {
     
     func setLeftIcon(_ image: UIImage) {
@@ -376,5 +381,19 @@ extension UITextField {
         iconContainerView.addSubview(iconView)
         rightView = iconContainerView
         rightViewMode = .always
+    }
+}
+
+//MARK: For dismis keybord
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
