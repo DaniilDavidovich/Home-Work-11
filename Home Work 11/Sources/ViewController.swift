@@ -156,6 +156,25 @@ class ViewController: UIViewController {
         return buttonRegister
     }()
     
+    let buttonGmail: UIButton = {
+        let buttonTwitter = UIButton()
+        
+        var config = UIButton.Configuration.filled()
+        config.image = UIImage(named: "gm")
+        config.imagePadding = 3
+        config.imagePlacement = .leading
+        config.cornerStyle = .capsule
+        config.baseBackgroundColor = .white
+        config.background.strokeColor = .black
+        config.titleAlignment = .center
+        
+        buttonTwitter.configuration = config
+        buttonTwitter.setTitleColor(.black, for: .normal)
+        buttonTwitter.setTitle("Gmail", for: .normal)
+        buttonTwitter.translatesAutoresizingMaskIntoConstraints = false
+        return buttonTwitter
+    }()
+    
     //MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -186,6 +205,7 @@ class ViewController: UIViewController {
         view.addSubview(buttonTwitter)
         view.addSubview(labelRegister)
         view.addSubview(buttonRegister)
+        view.addSubview(buttonGmail)
     }
     
     private func setupLayout() {
@@ -229,7 +249,7 @@ class ViewController: UIViewController {
             
             lineLabelRight.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 2),
             lineLabelRight.leadingAnchor.constraint(equalTo: labelConnectWith.trailingAnchor, constant: -5),
-            lineLabelRight.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            lineLabelRight.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -23),
             lineLabelRight.heightAnchor.constraint(equalToConstant: 1),
             
             buttonFacebook.leftAnchor.constraint(equalTo: labelConnectWith.leftAnchor, constant: 5),
@@ -249,6 +269,10 @@ class ViewController: UIViewController {
             buttonRegister.centerYAnchor.constraint(equalTo: labelRegister.centerYAnchor),
             buttonRegister.leadingAnchor.constraint(equalTo: labelRegister.trailingAnchor, constant: 20),
             
+            buttonGmail.leftAnchor.constraint(equalTo: labelConnectWith.rightAnchor),
+            buttonGmail.rightAnchor.constraint(equalTo: lineLabelRight.rightAnchor),
+            buttonGmail.heightAnchor.constraint(equalToConstant: 30),
+            buttonGmail.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 40),
         ])
         
     }
