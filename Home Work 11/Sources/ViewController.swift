@@ -150,7 +150,7 @@ class ViewController: UIViewController {
         buttonRegister.setTitle("Sign up", for: .normal)
         buttonRegister.translatesAutoresizingMaskIntoConstraints = false
         buttonRegister.titleLabel?.font = .systemFont(ofSize: 15)
-        buttonRegister.setTitleColor(.black, for: .normal)
+        buttonRegister.setTitleColor(.blue, for: .normal)
         buttonRegister.titleLabel?.textAlignment = .center
         
         return buttonRegister
