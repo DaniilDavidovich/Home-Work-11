@@ -107,7 +107,7 @@ class ViewController: UIViewController {
             textUsername.setRightIcon(imageRightUser!)
             
             let imageRightPasword = UIImage(systemName: "checkmark.seal.fill")
-            textPassword.setRightIcon(imageRightUser!)
+            textPassword.setRightIcon(imageRightPasword!)
             
         } else {
             let imageRightUser = UIImage(systemName: "xmark.seal.fill")
