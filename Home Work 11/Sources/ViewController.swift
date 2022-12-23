@@ -299,12 +299,12 @@ class ViewController: UIViewController {
             
             lineLabelLeft.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 2),
             lineLabelLeft.trailingAnchor.constraint(equalTo: labelConnectWith.leadingAnchor, constant: 5),
-            lineLabelLeft.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 17), //5
+            lineLabelLeft.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 17),
             lineLabelLeft.heightAnchor.constraint(equalToConstant: 1),
             
             lineLabelRight.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 2),
             lineLabelRight.leadingAnchor.constraint(equalTo: labelConnectWith.trailingAnchor, constant: -5),
-            lineLabelRight.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -17), //5
+            lineLabelRight.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -17),
             lineLabelRight.heightAnchor.constraint(equalToConstant: 1),
             
             buttonFacebook.leftAnchor.constraint(equalTo: labelConnectWith.leftAnchor, constant: -3),
@@ -312,7 +312,7 @@ class ViewController: UIViewController {
             buttonFacebook.heightAnchor.constraint(equalToConstant: 30),
             buttonFacebook.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 40),
             
-            buttonTwitter.rightAnchor.constraint(equalTo: labelConnectWith.leftAnchor,constant: -7),// 7
+            buttonTwitter.rightAnchor.constraint(equalTo: labelConnectWith.leftAnchor,constant: -7),
             buttonTwitter.leftAnchor.constraint(equalTo: lineLabelLeft.leftAnchor),
             buttonTwitter.heightAnchor.constraint(equalToConstant: 30),
             buttonTwitter.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 40),
@@ -324,7 +324,7 @@ class ViewController: UIViewController {
             buttonRegister.centerYAnchor.constraint(equalTo: labelRegister.centerYAnchor),
             buttonRegister.leadingAnchor.constraint(equalTo: labelRegister.trailingAnchor, constant: 20),
             
-            buttonGmail.leftAnchor.constraint(equalTo: labelConnectWith.rightAnchor, constant: 7),// 7
+            buttonGmail.leftAnchor.constraint(equalTo: labelConnectWith.rightAnchor, constant: 7),
             buttonGmail.rightAnchor.constraint(equalTo: lineLabelRight.rightAnchor),
             buttonGmail.heightAnchor.constraint(equalToConstant: 30),
             buttonGmail.centerYAnchor.constraint(equalTo: labelConnectWith.centerYAnchor, constant: 40),
